@@ -77,18 +77,33 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:700;letter-spacing:-.02em;line-h
 .brick{
   position:absolute;background:#14141e;border:1px solid #1d1c29;border-radius:2px;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.025);
+  cursor:pointer;transition:transform .18s,box-shadow .18s,border-color .18s;
+}
+.brick:hover{
+  transform:translateY(-3px) rotate(-1.5deg) scale(1.05);
+  border-color:#4a4866;box-shadow:0 0 16px rgba(200,255,62,.22);z-index:2;
 }
 .brick.frag{animation:tumble 7s ease-in-out infinite alternate;background:#181826;border-color:#2a2938}
 @keyframes tumble{
   from{transform:translate(0,0) rotate(var(--r0))}
   to{transform:translate(var(--dx),var(--dy)) rotate(var(--r1))}
 }
+.brick.out{
+  pointer-events:none;z-index:3;
+  animation:brickout 1s cubic-bezier(.35,.08,.7,1) forwards;
+}
+@keyframes brickout{
+  18%{transform:translate(var(--kx0),-16px) rotate(var(--kr0));opacity:1}
+  100%{transform:translate(var(--kx),112vh) rotate(var(--kr));opacity:.85}
+}
 #wall .glow{
   position:absolute;z-index:1;width:60vw;height:60vw;max-width:880px;max-height:880px;
   left:50%;top:46%;transform:translate(-50%,-50%);pointer-events:none;
   background:radial-gradient(closest-side,rgba(200,255,62,.16),rgba(94,231,255,.05) 55%,transparent 72%);
 }
-.hero-inner{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 1.4rem;width:100%}
+.hero-inner{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 1.4rem;width:100%;pointer-events:none}
+.hero-inner .statgrid,.hero-inner .ast{pointer-events:auto}
+.scrolldown{pointer-events:none}
 .hero-tag{font-family:"JetBrains Mono",monospace;font-size:.75rem;color:var(--muted);letter-spacing:.3em;text-transform:uppercase;margin-bottom:1.6rem}
 .hero-tag b{color:var(--hot)}
 h1{
@@ -312,11 +327,15 @@ footer{
 #bubble{
   position:absolute;bottom:2.2rem;left:50%;width:38px;height:38px;border-radius:50%;cursor:pointer;z-index:5;
   background:
-    radial-gradient(circle at 30% 28%,rgba(255,255,255,.95) 0 8%,transparent 26%),
-    radial-gradient(circle at 68% 70%,rgba(255,255,255,.35) 0 6%,transparent 20%),
-    radial-gradient(circle at 50% 50%,rgba(177,140,255,.16),rgba(94,231,255,.14) 45%,rgba(200,255,62,.10) 70%,rgba(255,255,255,.06) 100%);
-  border:1px solid rgba(255,255,255,.35);
-  box-shadow:inset 0 0 12px rgba(255,255,255,.18),0 0 18px rgba(94,231,255,.18);
+    radial-gradient(circle at 32% 28%,rgba(255,255,255,1) 0 14%,rgba(255,255,255,.3) 28%,transparent 42%),
+    radial-gradient(circle at 70% 74%,rgba(255,255,255,.55) 0 9%,transparent 24%),
+    radial-gradient(circle at 50% 50%,rgba(205,228,255,.75),rgba(168,200,255,.6) 50%,rgba(177,140,255,.5) 74%,rgba(120,225,255,.55) 100%);
+  border:1px solid rgba(255,255,255,.75);
+  box-shadow:
+    inset 0 0 14px rgba(255,255,255,.5),
+    inset -5px -5px 12px rgba(94,231,255,.35),
+    0 0 24px rgba(170,205,255,.5),
+    0 0 60px rgba(120,180,255,.25);
   animation:floaty 6s ease-in-out infinite;
   transition:transform .2s;
 }
@@ -894,6 +913,42 @@ function buildWall(){
 buildWall();
 let wallTimer;
 window.addEventListener('resize',()=>{clearTimeout(wallTimer);wallTimer=setTimeout(buildWall,180)});
+
+/* the wall is interactive. of course it is. it was never real. */
+let audioCtx=null;
+function thud(){
+  try{
+    audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
+    const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+    o.type='triangle';
+    o.frequency.setValueAtTime(150+Math.random()*60,audioCtx.currentTime);
+    o.frequency.exponentialRampToValueAtTime(48,audioCtx.currentTime+.09);
+    g.gain.setValueAtTime(.10,audioCtx.currentTime);
+    g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.11);
+    o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+.12);
+  }catch(e){}
+}
+let bricksGone=0,smashing=false;
+function knock(el){
+  if(!el||!el.classList||!el.classList.contains('brick')||el.classList.contains('out'))return;
+  el.classList.add('out');
+  el.style.setProperty('--kx0',(Math.random()*30-15)+'px');
+  el.style.setProperty('--kr0',(Math.random()*20-10)+'deg');
+  el.style.setProperty('--kx',(Math.random()*260-130)+'px');
+  el.style.setProperty('--kr',(Math.random()*560-280)+'deg');
+  thud();
+  setTimeout(()=>el.remove(),1050);
+  bricksGone++;
+  if(bricksGone===1)toast('see? comes right off. THERE IS NO WALL.');
+  else if(bricksGone===15)toast('15 bricks down. the skeptics swore these were load-bearing.');
+  else if(bricksGone===40)toast('40 bricks. at this point you\'re just helping me make the point.');
+  else if(bricksGone===100)toast('100 bricks removed. wall status: still never existed. — iuzu');
+}
+const wallC=document.getElementById('wallCanvas');
+wallC.addEventListener('pointerdown',e=>{smashing=true;knock(e.target)});
+window.addEventListener('pointerup',()=>{smashing=false});
+window.addEventListener('pointercancel',()=>{smashing=false});
+wallC.addEventListener('pointerover',e=>{if(smashing)knock(e.target)});
 
 /* ═══════════ countdown to judgment (IMO 2026) ═══════════ */
 const JUDGMENT = new Date('2026-07-10T00:00:00Z'); // IMO 2026, July. precise enough to be loud.
