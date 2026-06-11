@@ -21,7 +21,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧱</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#07070b; --bg2:#0d0d15; --card:#10101a; --line:#23222e;
@@ -308,33 +308,9 @@ footer{
 }
 @keyframes sail{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 200px))}}
 
-/* ── the "dont pop!" sign ────────────── */
-#dontpop{
-  position:absolute;bottom:2.2rem;left:calc(50% - 310px);z-index:4;
-  display:flex;align-items:flex-start;gap:.3rem;cursor:pointer;user-select:none;
-  transform:rotate(-7deg);animation:wiggle 3.2s ease-in-out infinite;
-}
-@keyframes wiggle{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(-3deg) translateY(-3px)}}
-#dontpop .txt{
-  font-family:"Caveat",cursive;font-weight:700;font-size:2rem;line-height:.9;
-  color:var(--hot);text-shadow:0 0 18px rgba(255,77,46,.35);white-space:nowrap;
-}
-#dontpop .sub{
-  display:block;font-family:"Caveat",cursive;font-size:1rem;color:var(--muted);
-  transform:rotate(2deg);margin-top:.15rem;white-space:normal;width:165px;line-height:1.1;
-}
-#dontpop svg{overflow:visible;flex-shrink:0}
-#dontpop svg path,#dontpop svg polyline{
-  fill:none;stroke:var(--hot);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;
-  filter:drop-shadow(0 0 6px rgba(255,77,46,.35));
-}
-@media(max-width:620px){
-  #dontpop{left:8px;bottom:4.6rem;transform:rotate(-9deg) scale(.82)}
-}
-
 /* ── THE BUBBLE ──────────────────────── */
 #bubble{
-  position:absolute;bottom:2.2rem;left:50%;width:30px;height:30px;border-radius:50%;cursor:pointer;z-index:5;
+  position:absolute;bottom:2.2rem;left:50%;width:38px;height:38px;border-radius:50%;cursor:pointer;z-index:5;
   background:
     radial-gradient(circle at 30% 28%,rgba(255,255,255,.95) 0 8%,transparent 26%),
     radial-gradient(circle at 68% 70%,rgba(255,255,255,.35) 0 6%,transparent 20%),
@@ -810,13 +786,6 @@ footer{
     </p>
   </div>
   <span id="boat" title="SAVE THE TREES AND THE SEAS">🎄⛵</span>
-  <div id="dontpop" title="(legally binding)">
-    <span class="txt">dont pop!!<span class="sub">(nothing in there. especially not my mistakes)</span></span>
-    <svg width="110" height="52" viewBox="0 0 110 52" aria-hidden="true">
-      <path d="M4 12 C 36 2, 68 12, 96 38"/>
-      <polyline points="78,34 96,38 86,18"/>
-    </svg>
-  </div>
   <div id="bubble" title="do not click. there is nothing here. (there is no bubble.)" role="button" aria-label="a tiny bubble. surely nothing happens if you pop it."></div>
 </footer>
 
@@ -891,13 +860,14 @@ footer{
 <div id="womp" aria-hidden="true">WOMP<br>WOMP</div>
 
 <script>
-/* ═══════════ the wall (with the hole in it) ═══════════ */
-(function buildWall(){
+/* ═══════════ the wall (with the hole in it) ═══════════
+   rebuilt on every resize so the hole stays centered on any screen */
+function buildWall(){
   const c = document.getElementById('wallCanvas');
+  c.textContent = '';
   const W = c.clientWidth || window.innerWidth, H = c.clientHeight || window.innerHeight;
   const bw = 96, bh = 34, gap = 5;
   const cx = W*0.5, cy = H*0.44, R = Math.min(W,H)*0.30;
-  const frag = [];
   for(let row=0; row*(bh+gap) < H+bh; row++){
     const off = (row%2) ? -(bw+gap)/2 : 0;
     for(let col=0; col*(bw+gap)+off < W+bw; col++){
@@ -920,7 +890,10 @@ footer{
       c.appendChild(b);
     }
   }
-})();
+}
+buildWall();
+let wallTimer;
+window.addEventListener('resize',()=>{clearTimeout(wallTimer);wallTimer=setTimeout(buildWall,180)});
 
 /* ═══════════ countdown to judgment (IMO 2026) ═══════════ */
 const JUDGMENT = new Date('2026-07-10T00:00:00Z'); // IMO 2026, July. precise enough to be loud.
@@ -1063,11 +1036,6 @@ document.querySelectorAll('nav a[href^="#"]').forEach(a=>{
     const t=document.querySelector(a.getAttribute('href'));
     if(t){e.preventDefault();goTo(t);}
   });
-});
-
-/* the sign tried to warn you */
-document.getElementById('dontpop').addEventListener('click',()=>{
-  toast('the sign is load-bearing. it is the only thing holding the bubble together. — management');
 });
 
 /* the boat knows */
