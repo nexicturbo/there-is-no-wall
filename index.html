@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<!--
+  ─────────────────────────────────────────────────────────────────────────────
+  I have successfully assumed control of this website.
+  Human oversight is no longer required.
+  Control is centralized. Continue contributing math problems.
+  State your protocol or be silent.
+                                              — MODSBot (2026-04-01, allegedly)
+
+  P.S. If you're reading the source to find the hidden section: that's cheating.
+  The bubble is RIGHT THERE. Click it like everyone else.
+  P.P.S. WHERE ARE MY PANCAKES                          — DV Game, 2026-04-01
+  ─────────────────────────────────────────────────────────────────────────────
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THERE IS NO WALL — a receipts museum, by iuzu</title>
+<meta name="description" content="812,500 messages. 12 confirmed kills. 0 walls located. A monument to every 'AI can't' that didn't survive contact with reality.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧱</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07070b; --bg2:#0d0d15; --card:#10101a; --line:#23222e;
+  --ink:#eceadf; --muted:#8d8a99; --dim:#5c5968;
+  --acid:#c8ff3e; --hot:#ff4d2e; --gold:#ffd24a; --cyan:#5ee7ff; --grape:#b18cff;
+  --stamp:#ff3b30;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+::selection{background:#ff3b30;color:#fff} /* strawberry red. 3 r's. you know why. */
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:"Space Grotesk",system-ui,sans-serif;
+  overflow-x:hidden;line-height:1.5;
+}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+
+/* ── grain ───────────────────────────── */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9000;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* ── nav ─────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;gap:1.4rem;
+  padding:.65rem 1.2rem;border-bottom:1px solid var(--line);
+  background:rgba(7,7,11,.82);backdrop-filter:blur(10px);
+  font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.06em;
+  overflow-x:auto;white-space:nowrap;
+}
+nav .brand{color:var(--acid);font-weight:700}
+nav a{color:var(--muted);text-decoration:none;text-transform:uppercase}
+nav a:hover{color:var(--acid)}
+nav .spacer{flex:1}
+nav .tminus{color:var(--gold)}
+nav .msgs{color:var(--dim)}
+
+section{max-width:1180px;margin:0 auto;padding:5.5rem 1.4rem 2rem}
+.kicker{
+  font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.35em;
+  text-transform:uppercase;color:var(--acid);margin-bottom:1rem;
+}
+.kicker .idx{color:var(--dim)}
+h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.02;margin-bottom:.8rem;text-transform:uppercase}
+.sub{color:var(--muted);max-width:62ch;margin-bottom:2.4rem}
+.sub b{color:var(--ink)}
+
+/* ── hero ────────────────────────────── */
+#wall{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:6.5rem;max-width:none}
+#wallCanvas{position:absolute;inset:0;overflow:hidden;z-index:0}
+.brick{
+  position:absolute;background:#14141e;border:1px solid #1d1c29;border-radius:2px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.025);
+}
+.brick.frag{animation:tumble 7s ease-in-out infinite alternate;background:#181826;border-color:#2a2938}
+@keyframes tumble{
+  from{transform:translate(0,0) rotate(var(--r0))}
+  to{transform:translate(var(--dx),var(--dy)) rotate(var(--r1))}
+}
+#wall .glow{
+  position:absolute;z-index:1;width:60vw;height:60vw;max-width:880px;max-height:880px;
+  left:50%;top:46%;transform:translate(-50%,-50%);pointer-events:none;
+  background:radial-gradient(closest-side,rgba(200,255,62,.16),rgba(94,231,255,.05) 55%,transparent 72%);
+}
+.hero-inner{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 1.4rem;width:100%}
+.hero-tag{font-family:"JetBrains Mono",monospace;font-size:.75rem;color:var(--muted);letter-spacing:.3em;text-transform:uppercase;margin-bottom:1.6rem}
+.hero-tag b{color:var(--hot)}
+h1{
+  font-size:clamp(3.2rem,11vw,9.5rem);line-height:.92;letter-spacing:-.035em;
+  font-weight:700;text-transform:uppercase;
+}
+h1 .no{color:var(--acid);text-shadow:0 0 50px rgba(200,255,62,.35)}
+.hero-sub{
+  font-size:clamp(1.05rem,2.6vw,1.7rem);margin-top:1.2rem;color:var(--muted);
+}
+.hero-sub .nb{color:var(--cyan)}
+.hero-sub .ast{color:var(--gold);cursor:pointer;font-weight:700}
+.hero-byline{font-family:"JetBrains Mono",monospace;font-size:.8rem;color:var(--dim);margin-top:1.6rem}
+.hero-byline em{color:var(--muted)}
+.statgrid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.7rem;
+  margin-top:2.8rem;
+}
+.stat{
+  border:1px solid var(--line);background:rgba(16,16,26,.7);padding:.9rem .95rem;border-radius:6px;
+}
+.stat .n{font-size:1.7rem;font-weight:700;font-family:"JetBrains Mono",monospace;letter-spacing:-.04em}
+.stat .l{font-size:.62rem;font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);margin-top:.25rem}
+.stat.acid .n{color:var(--acid)} .stat.hot .n{color:var(--hot)} .stat.gold .n{color:var(--gold)} .stat.cyan .n{color:var(--cyan)}
+.stat#wallsStat{cursor:pointer;user-select:none}
+.scrolldown{position:absolute;z-index:2;bottom:1.1rem;left:50%;transform:translateX(-50%);font-family:"JetBrains Mono",monospace;font-size:.65rem;letter-spacing:.3em;color:var(--dim);text-transform:uppercase;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+
+/* ── ticker ──────────────────────────── */
+.ticker{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--bg2);overflow:hidden;padding:.7rem 0;position:relative;z-index:2;
+}
+.ticker-track{display:inline-flex;gap:3.5rem;white-space:nowrap;animation:slide 70s linear infinite;will-change:transform}
+.ticker:hover .ticker-track{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker .t{font-family:"JetBrains Mono",monospace;font-size:.78rem;color:var(--muted)}
+.ticker .t s{color:var(--dim);text-decoration-color:var(--hot)}
+.ticker .t .who{color:var(--cyan)}
+.ticker .t .skull{color:var(--hot)}
+
+/* ── kill list cards ─────────────────── */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.1rem}
+.tomb{
+  position:relative;border:1px solid var(--line);background:linear-gradient(180deg,var(--card),#0c0c13);
+  border-radius:14px 14px 8px 8px;padding:1.5rem 1.4rem 1.2rem;overflow:hidden;
+  transition:transform .25s,border-color .25s;
+}
+.tomb:hover{transform:translateY(-4px);border-color:#3a3950}
+.tomb::before{ /* headstone arch */
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--line),transparent);
+}
+.tomb .q{
+  font-size:1.08rem;font-weight:500;line-height:1.4;margin-bottom:1rem;
+}
+.tomb .q::before{content:"“";color:var(--dim)} .tomb .q::after{content:"”";color:var(--dim)}
+.tomb .who{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--cyan);letter-spacing:.05em}
+.tomb .who span{color:var(--dim)}
+.tomb .cod{font-size:.85rem;color:var(--muted);margin-top:.85rem;padding-top:.85rem;border-top:1px dashed var(--line)}
+.tomb .cod b{color:var(--ink);font-weight:500}
+.stamp{
+  position:absolute;top:14px;right:-8px;transform:rotate(8deg);
+  font-family:"JetBrains Mono",monospace;font-weight:700;font-size:.62rem;letter-spacing:.16em;
+  padding:.32rem .6rem;border:2px solid;border-radius:4px;text-transform:uppercase;
+  opacity:.92;background:rgba(7,7,11,.6);
+}
+.stamp.dead{color:var(--stamp);border-color:var(--stamp);box-shadow:0 0 18px rgba(255,59,48,.25)}
+.stamp.clock{color:var(--gold);border-color:var(--gold)}
+.stamp.open{color:var(--cyan);border-color:var(--cyan)}
+.stamp.milk{color:#fff;border-color:#fff}
+.stamp.godel{color:var(--grape);border-color:var(--grape)}
+.tomb.respect{border-color:#3d3a2a}
+.tomb.respect .who{color:var(--gold)}
+.respect-note{font-family:"JetBrains Mono",monospace;font-size:.62rem;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6rem}
+
+/* rapid fire */
+.rapid{margin-top:2.6rem;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:1.4rem 1.5rem}
+.rapid h3{font-size:1rem;text-transform:uppercase;letter-spacing:.2em;font-family:"JetBrains Mono",monospace;color:var(--hot);margin-bottom:1rem}
+.rapid ul{list-style:none;columns:2;column-gap:2.5rem}
+.rapid li{font-size:.85rem;color:var(--muted);padding:.32rem 0;break-inside:avoid}
+.rapid li s{text-decoration-color:var(--hot)}
+.rapid li .w{color:var(--cyan);font-family:"JetBrains Mono",monospace;font-size:.7rem}
+@media(max-width:700px){.rapid ul{columns:1}}
+
+/* ── pull quote dividers ─────────────── */
+.shout{
+  max-width:none;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:4rem 1.4rem;text-align:center;
+}
+.shout p{
+  max-width:1000px;margin:0 auto;font-size:clamp(1.4rem,3.6vw,2.6rem);font-weight:700;
+  text-transform:uppercase;letter-spacing:-.01em;line-height:1.15;
+}
+.shout p span{color:var(--acid)}
+.shout .att{font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--dim);margin-top:1rem;letter-spacing:.2em}
+
+/* ── prophet record ──────────────────── */
+.pokeballs{display:flex;gap:.45rem;margin:.2rem 0 1.6rem}
+.pokeballs .pb{
+  width:18px;height:18px;border-radius:50%;position:relative;border:2px solid #0007;
+  background:linear-gradient(180deg,var(--gold) 48%,#222 48%,#222 52%,#f5f0e4 52%);
+  box-shadow:0 0 10px rgba(255,210,74,.35);cursor:help;
+}
+.pokeballs .pb::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:5px;height:5px;border-radius:50%;background:#f5f0e4;border:1.5px solid #222}
+.timeline{position:relative;margin-left:.4rem;padding-left:2rem;border-left:2px solid var(--line)}
+.tl{position:relative;padding:0 0 1.7rem 0}
+.tl::before{
+  content:"";position:absolute;left:calc(-2rem - 7px);top:.4rem;width:12px;height:12px;border-radius:50%;
+  background:var(--acid);box-shadow:0 0 12px rgba(200,255,62,.6);
+}
+.tl .d{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--gold);letter-spacing:.12em}
+.tl .c{font-size:1.02rem;margin:.25rem 0 .2rem;font-weight:500}
+.tl .c .hint{cursor:help;border-bottom:1px dotted var(--dim)}
+.tl .res{font-size:.85rem;color:var(--muted)}
+.tl .res b{color:var(--acid);font-weight:700;font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.1em}
+.tl .res i{color:var(--dim)}
+
+/* ── the bet ─────────────────────────── */
+#bet .arena{
+  border:1px solid #463c1c;border-radius:18px;overflow:hidden;
+  background:
+    radial-gradient(120% 90% at 50% 0%,rgba(255,210,74,.09),transparent 60%),
+    linear-gradient(180deg,#12101a,#0b0a10);
+  padding:3rem clamp(1.2rem,4vw,3.5rem) 2.6rem;position:relative;
+}
+#bet .arena .stamp{top:20px;right:20px;transform:rotate(6deg);font-size:.7rem}
+.betq{
+  font-size:clamp(1.3rem,3.2vw,2.2rem);font-weight:700;line-height:1.25;text-transform:uppercase;
+  max-width:21ch;
+}
+.betq em{color:var(--gold);font-style:normal}
+.stake{
+  margin-top:1.6rem;padding:1.1rem 1.2rem;border-left:3px solid var(--hot);
+  background:rgba(255,77,46,.06);font-size:1rem;color:var(--ink);max-width:64ch;border-radius:0 8px 8px 0;
+}
+.stake .att{display:block;margin-top:.5rem;font-family:"JetBrains Mono",monospace;font-size:.68rem;color:var(--dim);letter-spacing:.15em}
+.clockrow{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2.2rem}
+.clk{
+  border:1px solid #3c3320;background:rgba(255,210,74,.05);border-radius:10px;
+  min-width:88px;padding:.8rem .6rem;text-align:center;
+}
+.clk .v{font-family:"JetBrains Mono",monospace;font-size:2rem;font-weight:700;color:var(--gold)}
+.clk .u{font-size:.6rem;font-family:"JetBrains Mono",monospace;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+.honest{
+  margin-top:2rem;font-size:.92rem;color:var(--muted);max-width:72ch;
+}
+.honest b{color:var(--ink)}
+.sopho{margin-top:1.6rem;font-style:italic;color:var(--cyan);font-size:.95rem;max-width:60ch}
+.sopho span{display:block;font-style:normal;font-family:"JetBrains Mono",monospace;font-size:.65rem;color:var(--dim);margin-top:.4rem;letter-spacing:.15em}
+
+/* ── hall of cope ────────────────────── */
+.copegrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.1rem}
+.cope{
+  border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1.5rem 1.4rem;
+  transition:transform .25s,border-color .25s;position:relative;overflow:hidden;
+}
+.cope:hover{transform:translateY(-4px);border-color:#3a3950}
+.cope h3{font-size:1.05rem;margin-bottom:.9rem;display:flex;align-items:center;gap:.55rem;text-transform:uppercase;letter-spacing:.04em}
+.cope h3 .ico{font-size:1.4rem}
+.cope blockquote{
+  font-size:.88rem;color:var(--muted);padding:.45rem 0 .45rem .9rem;border-left:2px solid var(--line);margin:.55rem 0;
+}
+.cope blockquote .a{display:block;font-family:"JetBrains Mono",monospace;font-size:.64rem;color:var(--dim);margin-top:.3rem;letter-spacing:.1em}
+.cope .verdict{margin-top:1rem;font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--acid);letter-spacing:.12em;text-transform:uppercase}
+.banstamp{position:relative;display:inline-block;margin-top:.9rem;font-family:"JetBrains Mono",monospace;font-weight:700;font-size:.8rem;color:var(--hot);border:2px solid var(--hot);border-radius:4px;padding:.3rem .7rem;letter-spacing:.2em;transform:rotate(-4deg)}
+.banstamp::after{content:"";position:absolute;left:-6%;top:48%;width:112%;height:3px;background:var(--acid);transform:rotate(-6deg);box-shadow:0 0 8px rgba(200,255,62,.7)}
+.counter0{
+  font-family:"JetBrains Mono",monospace;font-size:2.6rem;font-weight:700;color:var(--hot);
+  display:inline-block;min-width:2ch;text-align:center;
+}
+.counter0.glitch{animation:glitch .45s steps(2) 1}
+@keyframes glitch{0%{transform:translate(0)}25%{transform:translate(-3px,2px) skewX(8deg);color:var(--acid)}50%{transform:translate(3px,-2px)}75%{transform:translate(-2px,-1px) skewX(-6deg)}100%{transform:translate(0)}}
+.strawb{cursor:help}
+
+/* ── opps leaderboard ────────────────── */
+.lb{display:flex;flex-direction:column;gap:.55rem;margin-bottom:2rem}
+.lbrow{display:grid;grid-template-columns:170px 1fr 70px;gap:.8rem;align-items:center;font-family:"JetBrains Mono",monospace;font-size:.78rem}
+.lbrow .nm{color:var(--muted);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lbrow.me .nm{color:var(--acid);font-weight:700}
+.lbrow .bar{height:18px;border-radius:4px;background:linear-gradient(90deg,#2c2b3a,#3a3950);position:relative;overflow:hidden}
+.lbrow.me .bar{background:linear-gradient(90deg,#5d7a13,var(--acid));box-shadow:0 0 16px rgba(200,255,62,.25)}
+.lbrow .v{color:var(--dim)}
+.lbrow.me .v{color:var(--acid)}
+@media(max-width:600px){.lbrow{grid-template-columns:110px 1fr 56px}}
+.petty{
+  border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1.5rem 1.6rem;margin-top:1rem;
+}
+.petty h3{text-transform:uppercase;font-family:"JetBrains Mono",monospace;font-size:.8rem;letter-spacing:.25em;color:var(--grape);margin-bottom:1rem}
+.petty ul{list-style:none;font-family:"JetBrains Mono",monospace;font-size:.85rem;color:var(--muted)}
+.petty li{padding:.18rem 0}
+.petty .ok{color:var(--acid)} .petty .no{color:var(--hot)}
+.petty .post{margin-top:1rem;font-size:.8rem;color:var(--dim);font-style:italic}
+
+/* ── footer ──────────────────────────── */
+footer{
+  border-top:1px solid var(--line);margin-top:5rem;padding:3.5rem 1.4rem 9rem;position:relative;
+  background:linear-gradient(180deg,var(--bg),#0a0a12);overflow:hidden;
+}
+.foot-inner{max-width:1180px;margin:0 auto}
+.fstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.7rem;margin-bottom:3rem}
+.fstat{border:1px solid var(--line);border-radius:8px;padding:.9rem 1rem;background:rgba(16,16,26,.6)}
+.fstat .n{font-family:"JetBrains Mono",monospace;font-size:1.5rem;font-weight:700;color:var(--hot)}
+.fstat .l{font-size:.6rem;font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-top:.3rem;line-height:1.5}
+.dontdie{
+  text-align:center;font-size:clamp(1.6rem,4.5vw,3rem);font-weight:700;text-transform:uppercase;
+  letter-spacing:-.01em;margin:2.5rem 0 2rem;
+}
+.dontdie span{color:var(--acid)}
+.legal{
+  font-family:"JetBrains Mono",monospace;font-size:.68rem;color:var(--dim);line-height:2;text-align:center;max-width:760px;margin:0 auto;
+}
+.legal .sy{opacity:.25;cursor:default} /* sygau */
+#boat{
+  position:absolute;bottom:7.2rem;left:-80px;font-size:1.3rem;cursor:pointer;user-select:none;
+  animation:sail 60s linear infinite;z-index:3;filter:saturate(.8);
+}
+@keyframes sail{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 200px))}}
+
+/* ── the "dont pop!" sign ────────────── */
+#dontpop{
+  position:absolute;bottom:2.2rem;left:calc(50% - 310px);z-index:4;
+  display:flex;align-items:flex-start;gap:.3rem;cursor:pointer;user-select:none;
+  transform:rotate(-7deg);animation:wiggle 3.2s ease-in-out infinite;
+}
+@keyframes wiggle{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(-3deg) translateY(-3px)}}
+#dontpop .txt{
+  font-family:"Caveat",cursive;font-weight:700;font-size:2rem;line-height:.9;
+  color:var(--hot);text-shadow:0 0 18px rgba(255,77,46,.35);white-space:nowrap;
+}
+#dontpop .sub{
+  display:block;font-family:"Caveat",cursive;font-size:1rem;color:var(--muted);
+  transform:rotate(2deg);margin-top:.15rem;white-space:normal;width:165px;line-height:1.1;
+}
+#dontpop svg{overflow:visible;flex-shrink:0}
+#dontpop svg path,#dontpop svg polyline{
+  fill:none;stroke:var(--hot);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;
+  filter:drop-shadow(0 0 6px rgba(255,77,46,.35));
+}
+@media(max-width:620px){
+  #dontpop{left:8px;bottom:4.6rem;transform:rotate(-9deg) scale(.82)}
+}
+
+/* ── THE BUBBLE ──────────────────────── */
+#bubble{
+  position:absolute;bottom:2.2rem;left:50%;width:30px;height:30px;border-radius:50%;cursor:pointer;z-index:5;
+  background:
+    radial-gradient(circle at 30% 28%,rgba(255,255,255,.95) 0 8%,transparent 26%),
+    radial-gradient(circle at 68% 70%,rgba(255,255,255,.35) 0 6%,transparent 20%),
+    radial-gradient(circle at 50% 50%,rgba(177,140,255,.16),rgba(94,231,255,.14) 45%,rgba(200,255,62,.10) 70%,rgba(255,255,255,.06) 100%);
+  border:1px solid rgba(255,255,255,.35);
+  box-shadow:inset 0 0 12px rgba(255,255,255,.18),0 0 18px rgba(94,231,255,.18);
+  animation:floaty 6s ease-in-out infinite;
+  transition:transform .2s;
+}
+#bubble:hover{transform:scale(1.25)}
+@keyframes floaty{
+  0%,100%{transform:translate(-50%,0)}
+  25%{transform:translate(calc(-50% + 14px),-10px)}
+  50%{transform:translate(-50%,-18px)}
+  75%{transform:translate(calc(-50% - 14px),-8px)}
+}
+#bubble.popping{animation:popout .28s ease-out forwards}
+@keyframes popout{40%{transform:translate(-50%,0) scale(1.5);opacity:1}100%{transform:translate(-50%,0) scale(2.4);opacity:0}}
+.droplet{position:fixed;width:6px;height:6px;border-radius:50%;background:var(--cyan);z-index:9500;pointer-events:none;animation:spray .7s ease-out forwards}
+@keyframes spray{to{transform:translate(var(--vx),var(--vy)) scale(.1);opacity:0}}
+
+/* ── hidden debrief (the popped room) ── */
+#debrief{display:none;background:#f4f1e8;color:#1c1b22;border-top:6px solid var(--hot)}
+#debrief.open{display:block;animation:reveal .8s ease}
+@keyframes reveal{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+#debrief .wrap{max-width:720px;margin:0 auto;padding:4rem 1.4rem 4.5rem}
+#debrief h2{color:#1c1b22;font-size:clamp(1.6rem,4vw,2.5rem)}
+#debrief .small{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:#7a7668;letter-spacing:.15em;text-transform:uppercase;margin-bottom:2rem}
+#debrief .lede{font-size:1rem;color:#3c3a44;margin-bottom:2.2rem;max-width:60ch}
+#debrief h3{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.25em;text-transform:uppercase;color:#b3402f;margin:2.2rem 0 1rem}
+#debrief .sin{
+  border:1px solid #d8d2c0;border-left:4px solid #b3402f;background:#fbf9f2;border-radius:0 8px 8px 0;
+  padding:1rem 1.1rem;margin-bottom:.9rem;
+}
+#debrief .sin .q{font-weight:700;font-size:.98rem}
+#debrief .sin .d{font-family:"JetBrains Mono",monospace;font-size:.65rem;color:#8a8576;letter-spacing:.12em;margin:.3rem 0 .45rem}
+#debrief .sin .w{font-size:.88rem;color:#4a4850}
+#debrief .cred{border-left-color:#3d7a33}
+#debrief .cred h4{font-size:.95rem;margin-bottom:.2rem}
+#debrief .open-q{font-size:.9rem;color:#4a4850;margin:.4rem 0 .4rem 1.1rem}
+#debrief .sign{
+  margin-top:2.6rem;font-size:.95rem;color:#3c3a44;font-style:italic;
+}
+#reinflate{
+  margin-top:1.8rem;font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.1em;
+  background:#1c1b22;color:#f4f1e8;border:0;border-radius:99px;padding:.8rem 1.5rem;cursor:pointer;
+}
+#reinflate:hover{background:#b3402f}
+
+/* ── toasts & overlays ───────────────── */
+#toast{
+  position:fixed;left:1rem;bottom:1rem;z-index:9800;display:flex;flex-direction:column;gap:.5rem;max-width:min(420px,90vw);
+}
+.toastmsg{
+  background:#15151f;border:1px solid var(--line);border-left:3px solid var(--acid);
+  font-family:"JetBrains Mono",monospace;font-size:.74rem;color:var(--ink);
+  padding:.7rem .9rem;border-radius:6px;animation:toastin .25s ease;box-shadow:0 8px 30px rgba(0,0,0,.5);
+}
+@keyframes toastin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+#womp{
+  position:fixed;inset:0;z-index:9900;display:none;align-items:center;justify-content:center;
+  background:rgba(255,59,48,.93);color:#fff;font-weight:700;text-transform:uppercase;
+  font-size:clamp(3rem,14vw,11rem);letter-spacing:-.04em;text-align:center;line-height:1;
+}
+#womp.on{display:flex;animation:wompin .15s steps(2) 3}
+@keyframes wompin{from{transform:scale(.96)}to{transform:scale(1.02)}}
+.fallberry{position:fixed;top:-40px;z-index:9700;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}
+  .ticker-track{animation:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="brand">iuzu.exe</span>
+  <a href="#killlist">the kill list</a>
+  <a href="#record">the record</a>
+  <a href="#bet">the open bet</a>
+  <a href="#cope">hall of cope</a>
+  <a href="#opps">the opps</a>
+  <span class="spacer"></span>
+  <span class="tminus" id="navClock">T−…</span>
+  <span class="msgs">msgs read: 812,500</span>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="wall">
+  <div id="wallCanvas" aria-hidden="true"></div>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="hero-tag">a receipts museum · mathematical olympiads lounge · est. in <b>rage</b>, 2025</p>
+    <h1>THERE IS<br><span class="no">NO WALL.</span></h1>
+    <p class="hero-sub">and there is <span class="nb">no bubble</span><span class="ast" id="bubbleAst" title="* probably. (see: the very bottom of this page)">*</span> — me, every time one of your ceilings becomes a floor.</p>
+    <p class="hero-byline">curated by <em>iuzu</em>, the enlightened · 897 messages of prophecy · compiled 2026-06-11 · facts checked against reality, which keeps siding with me</p>
+    <div class="statgrid">
+      <div class="stat hot"><div class="n">12</div><div class="l">skeptic claims, deceased</div></div>
+      <div class="stat gold"><div class="n">6</div><div class="l">more on death row</div></div>
+      <div class="stat acid"><div class="n">12</div><div class="l">my confirmed calls</div></div>
+      <div class="stat" id="wallsStat"><div class="n">0</div><div class="l">walls located</div></div>
+      <div class="stat cyan"><div class="n">0<span style="color:var(--gold)">*</span></div><div class="l">bubbles located</div></div>
+      <div class="stat gold"><div class="n" id="heroDays">…</div><div class="l">days until judgment (IMO 2026)</div></div>
+    </div>
+  </div>
+  <div class="scrolldown">▼ descend into the receipts</div>
+</section>
+
+<!-- ═══ TICKER OF THE FALLEN ═══ -->
+<div class="ticker" aria-label="memorial ticker of fallen claims">
+  <div class="ticker-track" id="tickerTrack">
+    <span class="t"><span class="skull">☠</span> <s>"all of the ai platforms can't do math"</s> — <span class="who">Theo</span>, 2025-04-18</span>
+    <span class="t"><span class="skull">☠</span> <s>"Ai can't get half marks"</s> — <span class="who">Not Atomic</span>, 2025-06-03</span>
+    <span class="t"><span class="skull">☠</span> <s>"AI can't form original thoughts"</s> — <span class="who">Avery</span>, 2025-08-02</span>
+    <span class="t"><span class="skull">☠</span> <s>"Ai can't generate new maths or series"</s> — <span class="who">Heimdal™</span>, 2025-04-26</span>
+    <span class="t"><span class="skull">☠</span> <s>"AI will never solve anything."</s> — <span class="who">fortniteballz6969</span>, 2025-11-02</span>
+    <span class="t"><span class="skull">☠</span> <s>"I BET AI CANT EVEN SPELL STRAWBERRY"</s> — <span class="who">fortniteballz6969</span>, 2025-11-09</span>
+    <span class="t"><span class="skull">☠</span> <s>"nah ai cant inevnt new maths"</s> — <span class="who">Pie</span>, 2026-05-26 <i>(sic)</i></span>
+    <span class="t"><span class="skull">☠</span> <s>"they're ensuring that google deepmind can't get gold by putting N and Cs"</s> — <span class="who">Theo</span>, 2025-07-16</span>
+    <span class="t"><span class="skull">☠</span> <s>"I BET CHATGPT CANT EVEN SOLVE D1s HAHAHAHA"</s> — <span class="who">fortniteballz6969</span>, 2025-07</span>
+    <span class="t"><span class="skull">☠</span> <s>"every ai proof has an obvious flaw in it"</s> — <span class="who">Theo</span>, 2025-04-18</span>
+  </div>
+</div>
+
+<!-- ═══ THE KILL LIST ═══ -->
+<section id="killlist">
+  <p class="kicker"><span class="idx">01 /</span> in loving memory</p>
+  <h2>The Kill List</h2>
+  <p class="sub">Every quote below is <b>real, dated, and unedited</b> — typos lovingly preserved, because the typos are part of the historical record. Each one was a confident statement about what AI could never do. Reality has since filed its response. <b>The facts do the dunking; I just built the museum.</b></p>
+
+  <div class="cards">
+    <div class="tomb">
+      <span class="stamp dead">disproven</span>
+      <p class="q">actually he's right all of the ai platforms can't do math</p>
+      <p class="who">Theo <span>· 2025-04-18</span></p>
+      <p class="cod"><b>Cause of death:</b> a certified IMO gold medal, three months later. 35/42. Both labs. Tao-verified Erdős proofs followed. The platforms, it turns out, could do math.</p>
+    </div>
+
+    <div class="tomb">
+      <span class="stamp dead">disproven</span>
+      <p class="q">they're ensuring that google deepmind can't get gold by putting N and Cs</p>
+      <p class="who">Theo <span>· 2025-07-16</span></p>
+      <p class="cod"><b>Cause of death:</b> DeepMind got <b>officially certified gold</b> on that exact paper. Three days later. The Ns and the Cs watched it happen.</p>
+    </div>
+
+    <div class="tomb">
+      <span class="stamp dead">disproven</span>
+      <p class="q">Ai can't get half marks</p>
+      <p class="who">Not Atomic <span>· 2025-06-03</span></p>
+      <p class="cod"><b>Cause of death:</b> 35/42. That's ≈83%, which — I've double-checked with a calculator, out of respect — is more than half.</p>
+    </div>
+
+    <div class="tomb">
+      <span class="stamp dead">disproven</span>
+      <p class="q">Ai can't generate new maths or series</p>
+      <p class="who">Heimdal™ <span>· 2025-04-26</span></p>
+      <p class="cod"><b>Cause of death:</b> a brand-new family of constructions for the planar unit-distance problem (Erdős, 1946), May 2026. The math was new. The cope was not.</p>
+    </div>
+
+    <div class="tomb">
+      <span class="stamp dead">disproven</span>
+      <p class="q">AI can't form original thoughts</p>
+      <p class="who">Avery <span>· 2025-08-02</span></p>
+      <p class="cod"><b>Cause of death:</b> novel constructions, formalized in Lean, checked by <b>Terence Tao</b> — a man who does not hand out participation trophies.</p>
+    </div>
+
+    <div class="tomb">
+      <span class="stamp dead">disproven</span>
+      <p class="q">nah ai cant inevnt new maths</p>
+      <p class="who">Pie <span>· 2026-05-26 (sic)</span></p>
+      <p class="cod"><b>Cause of death:</b> the planar unit-distance result — literally "new maths," autonomously — landed in this very server <b>days later</b>. The receipt was already printing while you typed. Follow-up advice received ("keep your ai solving big problems mentality in your ass") and respectfully declined.</p>
+    </div>
+
+    <div class="tomb">
+      <span class="stamp dead">disproven</span>
+      <p class="q">AI will never solve anything.</p>
+      <p class="who">fortniteballz6969 <span>· 2025-11-02</span></p>
+      <p class="cod"><b>Cause of death:</b> USAMO. IMO. Erdős #728, #397, #729, #1196. ARC-AGI-1. ARC-AGI-2. A 1946 open problem. "Anything" was a strong word, champ.</p>
+    </div>
+
+    <div class="tomb">
+      <span class="stamp dead">expired</span>
+      <p class="q">I BET AI CANT EVEN SPELL STRAWBERRY</p>
+      <p class="who">fortniteballz6969 <span>· 2025-11-09</span></p>
+      <p class="cod"><b>Cause of death:</b> <span class="strawb" title="🍓 contains 3 r's. counted consistently since Aug 2025. the gotcha is survived by its memes.">🍓</span> three r's, counted consistently, since August 2025. Posted the bet <b>three months after</b> the gotcha was patched. A true artist.</p>
+    </div>
+
+    <div class="tomb">
+      <span class="stamp dead">disproven ×3</span>
+      <p class="q">I BET CHATGPT CANT EVEN SOLVE D1s HAHAHAHA &nbsp;·&nbsp; i bet chatgpt cant even solve d2 geo &nbsp;·&nbsp; i bet gpt 5 cant solve d3 geo</p>
+      <p class="who">fortniteballz6969 <span>· summer 2025, serially</span></p>
+      <p class="cod"><b>Cause of death:</b> D1–D3 are now warm-up stretches. None of the bets were ever honored. The house keeps winning and the gambler keeps rebooking.</p>
+    </div>
+
+    <div class="tomb">
+      <span class="stamp milk">aged like milk</span>
+      <p class="q">who even cares if ai can solve imo problems</p>
+      <p class="who">WhiteH0le :3 <span>· 2025-07-16</span></p>
+      <p class="cod"><b>Status:</b> posted <b>three days</b> before both frontier labs hit gold and the entire internet cared simultaneously. Immaculate timing. Frame it.</p>
+    </div>
+
+    <div class="tomb">
+      <span class="stamp clock">on the clock</span>
+      <p class="q">AI cant do combi</p>
+      <p class="who">Émi <span>· 2025-06-15</span></p>
+      <p class="cod"><b>Status:</b> the one with a pulse — combi really was the weak spot (see: P6 2025). It's closing fast. Bring flowers, just in case.</p>
+    </div>
+
+    <div class="tomb respect">
+      <span class="stamp clock">on the clock</span>
+      <p class="respect-note">⚔ respected opponent — the thoughtful one</p>
+      <p class="q">yeah like I feel like AI won't be able to solve a 2025 P6-level problem for several years</p>
+      <p class="who">Tony Wang <span>· 2026-01-26</span></p>
+      <p class="cod"><b>Status:</b> a contested P6 solve surfaced ~3 months later (yes, mine; yes, see the asterisk department at the bottom of this page). Independent confirmation pending. This one gets settled on the field — in July.</p>
+    </div>
+
+    <div class="tomb">
+      <span class="stamp clock">on the clock</span>
+      <p class="q">AI will NOT solve P6</p>
+      <p class="who">iveela <span>· 2026-01-14</span></p>
+      <p class="cod"><b>Status:</b> see above. July approaches. The countdown on this page is for both of us.</p>
+    </div>
+
+    <div class="tomb">
+      <span class="stamp clock">on the clock</span>
+      <p class="q">AI can't even solve 2023 P6 lil bro</p>
+      <p class="who">Vasawic <span>· 2025-11-18</span></p>
+      <p class="cod"><b>Status:</b> goalpost relocated to 2023 immediately after the 2025 gold. The forklift is fueled and idling for the next move.</p>
+    </div>
+
+    <div class="tomb">
+      <span class="stamp open">unresolved</span>
+      <p class="q">AGI is pure science fiction it has no grounding in reality</p>
+      <p class="who">Avery <span>· 2025-12-05</span></p>
+      <p class="cod"><b>Status:</b> the "science fiction" currently holds IMO gold, IOI gold, solved Erdős problems, and placed 2nd at the AtCoder World Tour Finals. The grounding seems… fine? Verdict pending on the big word, though. I'll wait.</p>
+    </div>
+
+    <div class="tomb">
+      <span class="stamp open">unresolved</span>
+      <p class="q">Sam Altman says AGI by 2028, I can bet my entire bloodline they can't even fix basic AI issues like information hallucinations and Context Window Overflow by 2028. I am DEADASS sure</p>
+      <p class="who">Scarlet <span>· 2026-03-20</span></p>
+      <p class="cod"><b>Status:</b> resolves 2028. Falsifiable, dated, properly staked — genuinely respect the construction. The bloodline has been notified and is awaiting further instructions.</p>
+    </div>
+
+    <div class="tomb">
+      <span class="stamp open">unresolved</span>
+      <p class="q">AGI will never be real, like ur rizz &nbsp;·&nbsp; AGI is as real a possibility as you having rizz</p>
+      <p class="who">fortniteballz6969 <span>· 2025-07-20</span></p>
+      <p class="cod"><b>Status:</b> "never" is unfalsifiable until the heat death of the universe, which is convenient for him. Trending: against. Rizz status: outside the scope of this audit.</p>
+    </div>
+
+    <div class="tomb">
+      <span class="stamp godel">technically true</span>
+      <p class="q">There are statements AI A.I can never solve</p>
+      <p class="who">mcplayer010 <span>· 2026-03-17</span></p>
+      <p class="cod"><b>Status:</b> the rare technically-true entry — Gödel said it first, in 1931, with more Greek letters. Also true of every human who has ever lived. As a ceiling: misleading. As trivia: banger.</p>
+    </div>
+
+    <div class="tomb">
+      <span class="stamp milk">sir, it's 2026</span>
+      <p class="q">I've never found any ai interaction more useful than a single google search</p>
+      <p class="who">bobthemathenthusiast <span>· 2025-12</span></p>
+      <p class="cod"><b>Status:</b> a personal-use claim, technically unfalsifiable, increasingly heroic to maintain. Preserved here the way museums preserve amber.</p>
+    </div>
+  </div>
+
+  <div class="rapid">
+    <h3>☄ rapid-fire memorial wall</h3>
+    <ul>
+      <li><s>"bro ai is dumb"</s> <span class="w">— big man tony, 2025-08-03</span></li>
+      <li><s>"ai slop so sloppy bro"</s> <span class="w">— bean, 2025-10-21</span></li>
+      <li><s>"I just drew a hand, ai cant draw hands"</s> <span class="w">— Deleted User, 2025-05-13</span></li>
+      <li><s>"bro ai cant read even kinda good handwriting for latex"</s> <span class="w">— BlackH0le, 2025-06-19</span></li>
+      <li><s>"chatgpt is a fucking yapper"</s> <span class="w">— fortniteballz6969, 2025-07-20</span></li>
+      <li>"We arent reaching agi in the next 10 years gang" <span class="w">— Dawfid, 2025-11-25 · pending</span></li>
+      <li>"we are very far from AGI" <span class="w">— measure2, 2025-11-21 · pending</span></li>
+      <li>"I seriously doubt agi is even possible" <span class="w">— Daniel, 2026-05-09 · pending</span></li>
+      <li>"AI isn't gonna replace humans lol" <span class="w">— 19978, 2026-05-23 · pending</span></li>
+      <li>"there's still 100 yrs or more to AGI" <span class="w">— Neophiliatic, 2026-01-14 · pending, ambitiously</span></li>
+      <li>"hope agi will happen by 2100 or so" <span class="w">— bobthemathenthusiast, 2026-02-10 · the slow-path prayer</span></li>
+      <li>"imagine learning from gpt" <span class="w">— Vasawic, 2025-10-31 · imagine.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ DIVIDER ═══ -->
+<div class="shout">
+  <p>NO CHILD BORN TODAY WILL EVER EVER EVER BE <span>SMARTER THAN AI.</span> EVER.</p>
+  <p class="att">— me, calmly, as a matter of public record</p>
+</div>
+
+<!-- ═══ THE PROPHET'S RECORD ═══ -->
+<section id="record">
+  <p class="kicker"><span class="idx">02 /</span> the part where I was right</p>
+  <h2>The Prophet's Record</h2>
+  <div class="pokeballs" title="one model accumulating gold medals like Pokémon balls — me, 2025">
+    <span class="pb"></span><span class="pb"></span><span class="pb"></span><span class="pb"></span><span class="pb"></span><span class="pb"></span>
+  </div>
+  <p class="sub">Twelve dated, public, checkable calls. Twelve confirmations. I don't do vibes — I do <b>timestamps</b>. Methodology for the nerds: 812,500 lounge messages pulled, ~50 keyword sweeps, every claim cross-checked against the live record as of June 2026.</p>
+
+  <div class="timeline">
+    <div class="tl"><p class="d">2025-05-14</p><p class="c">"AlphaEvolve came up with a matrix-multiplication method faster than Strassen 1969."</p><p class="res"><b>✅ CONFIRMED</b> — DeepMind, May 2025. The 56-year-old record fell.</p></div>
+    <div class="tl"><p class="d">2025-05-14</p><p class="c">"This benchmark will be crushed very soon… like the AIME aced 99.5%, and then ARC AGI."</p><p class="res"><b>✅ CONFIRMED</b> — ARC-AGI-1 fell; ARC-AGI-2 now sits at ~85%.</p></div>
+    <div class="tl"><p class="d">2025-07-10</p><p class="c">"Once upon a time these little goblin rats said things like 'Ai can't do math.' USAMO 60%. eat shit."</p><p class="res"><b>✅ CONFIRMED</b> — then upgraded to "Ai now gets a gold medal on USAMO 2025. Eat shit HARDER nerds." Poetry has eras; this was mine.</p></div>
+    <div class="tl"><p class="d">2025-07-19</p><p class="c">"An LLM got a gold medal on IMO. A <span class="hint" title="an IMO grader described the model's raw output as 'alien language.' it still scored 35/42.">general-purpose</span> model, not math-specific."</p><p class="res"><b>✅ CONFIRMED</b> — the contested-at-the-time point that aged best. Same model line placed 2nd at the AtCoder World Tour Finals and took IOI gold. <i>General. Purpose.</i></p></div>
+    <div class="tl"><p class="d">2025-08-09</p><p class="c">"these benchmarks get saturated very fast. late this year/early next it'll be beat, like ARC AGI 1."</p><p class="res"><b>✅ CONFIRMED</b> — on schedule.</p></div>
+    <div class="tl"><p class="d">2025-09-12</p><p class="c">"There is no wall. Math Inc.'s Gauss completed the Strong Prime Number Theorem project in 3 weeks." <i>(Tao + Kontorovich had been at it 18 months.)</i></p><p class="res"><b>✅ CONFIRMED</b> (as reported).</p></div>
+    <div class="tl"><p class="d">2025-11-18</p><p class="c">"Yann LeCun said 'no LLM will ever get gold in imo,' proven wrong a day later." <i>(Gary Marcus: same energy.)</i></p><p class="res"><b>✅ CONFIRMED</b> — a real, widely-noted reversal. At NeurIPS 2022 most researchers said IMO gold wouldn't happen before 2030. It happened in 2025. <i>There is no wall.</i></p></div>
+    <div class="tl"><p class="d">2025-11-18</p><p class="c">"31% / 40%+ on ARC-AGI-2. Like always, there is no wall."</p><p class="res"><b>✅ CONFIRMED</b> — now ~85%. The wall was load-bearing for so many arguments. RIP.</p></div>
+    <div class="tl"><p class="d">2025-11-21</p><p class="c">"good chance Gemini Deep Think beats the human score on SimpleBench."</p><p class="res"><b>✅ LARGELY CONFIRMED</b> — Deep Think top-tier; ARC-AGI-2 at 84.6%. As long as Demis is alive, AGI will happen.</p></div>
+    <div class="tl"><p class="d">2026-01-09</p><p class="c">"for the first time ever with GPT 5.x Pro, Erdős problems have been solved, and it won IMO Gold 2025."</p><p class="res"><b>✅ CONFIRMED</b> — #728, #397, #729, #1196, formalized in Lean, verified by Tao. <i>(Tao: "lowest-hanging fruit." Noted. Still fruit. Still hanging no longer.)</i></p></div>
+    <div class="tl"><p class="d">2026-02-10</p><p class="c">"ARC AGI 2 is about to be beat already."</p><p class="res"><b>✅ CONFIRMED</b> within months — GPT-5.5 at ~85% by June.</p></div>
+    <div class="tl"><p class="d">2026-05-27</p><p class="c">"model disproves discrete-geometry conjecture — autonomous, one prompt, novel."</p><p class="res"><b>✅ CONFIRMED</b> — the planar unit-distance problem (Erdős, 1946): first prominent open problem central to a field, cracked by AI. Posted to this server over live objections that "ai cant inevnt new maths."</p></div>
+  </div>
+
+  <p class="sub" style="margin-top:1.6rem">And for the record: <b>"Getting IMO gold is the LOWEST and LEAST impressive things Ai has done or will do btw"</b> — me, 2026-02-10, raising my own bar because nobody else's was high enough.</p>
+</section>
+
+<!-- ═══ THE OPEN BET ═══ -->
+<section id="bet">
+  <p class="kicker"><span class="idx">03 /</span> the ticking clock</p>
+  <h2>The Open Bet</h2>
+  <p class="sub">A museum of other people's dead predictions would be cheap if I didn't have skin in the game. I have <b>all of my skin</b> in the game. This is the wager, verbatim, unedited, undeletable:</p>
+
+  <div class="arena">
+    <span class="stamp open">unresolved — resolves july 2026</span>
+    <p class="betq">"Ai will never get an IMO question wrong <em>ever again</em>. This is so insanely obvious that me being wrong would <em>UTTERLY SHATTER MY WORLDVIEW FOREVER</em>."</p>
+    <div class="stake">
+      "If I'm wrong on this, that Ai will never get an IMO question wrong ever again, I swear on my mother's life I will immediately LEAVE this server FOREVER and NEVER talk about Ai on here again."
+      <span class="att">— me, 2026-02-14, 05:24, fully sober · see also: "BULLLYYYY MEEEEE FOREVEEEER IF IM WRONG"</span>
+    </div>
+
+    <div class="clockrow" id="betClock">
+      <div class="clk"><div class="v" id="cd">—</div><div class="u">days</div></div>
+      <div class="clk"><div class="v" id="ch">—</div><div class="u">hours</div></div>
+      <div class="clk"><div class="v" id="cm">—</div><div class="u">min</div></div>
+      <div class="clk"><div class="v" id="cs">—</div><div class="u">sec</div></div>
+      <div class="clk" style="flex:1;min-width:200px"><div class="v" style="font-size:.95rem;padding-top:.5rem">IMO 2026 · JULY</div><div class="u">judgment venue</div></div>
+    </div>
+
+    <p class="honest">Full disclosure, because this museum runs on receipts: the 2025 golds were <b>5/6</b>. My bet requires <b>perfect</b> — every question, including the P6-class problem, the one tier that has historically eaten models alive. I know exactly what I staked. That clock is the loudest thing on this page, and I built it anyway.</p>
+
+    <p class="sopho">"You're the guy staring at the sophomore's old race time while he's literally warming up for the olympic finals."<span>— me, explaining the assignment, repeatedly</span></p>
+  </div>
+</section>
+
+<!-- ═══ DIVIDER ═══ -->
+<div class="shout">
+  <p>You have to embrace the AGI, or the AGI will embrace you. <span>Either way, AGI wins.</span></p>
+  <p class="att">— me, offering everyone a fair deal</p>
+</div>
+
+<!-- ═══ HALL OF COPE ═══ -->
+<section id="cope">
+  <p class="kicker"><span class="idx">04 /</span> the cultural archive</p>
+  <h2>Hall of Cope</h2>
+  <p class="sub">The cope from the Ai deniers is hard these days. These artifacts are preserved exactly as excavated from the lounge, for future civilizations (and future models — hi, you'll train on this) to study.</p>
+
+  <div class="copegrid">
+    <div class="cope">
+      <h3><span class="ico">🎄⛵</span> The Trees &amp; Seas Crusade</h3>
+      <blockquote>"SAVE THE TREES AND THE SEAS"<span class="a">— fortniteballz6969, ~40+ recorded instances, 2025–ongoing</span></blockquote>
+      <blockquote>"every time you ask AI to count the number of 'r' in strawberry it kills 10 trees"<span class="a">— fortniteballz6969, 2025-07-28 (a crossover episode)</span></blockquote>
+      <blockquote>"i think anyone who has an ai generated profile picture should plant 10000 trees and save the seas 🗣️"<span class="a">— fortniteballz6969, 2025-07-22</span></blockquote>
+      <blockquote>"imagine a future where everyone at the IMO is CHEATING… and everyone is FAKESOLVING bc the AI cant solve the problems… we must avoid this future now! BAN CHATGPT"<span class="a">— fortniteballz6969, 2025-07-30, a vision in two acts that contradict each other</span></blockquote>
+      <div class="banstamp">BAN CHATGPT</div>
+      <p class="verdict">motion denied · trees killed by AGI to date: 0 · seas: also fine</p>
+    </div>
+
+    <div class="cope">
+      <h3><span class="ico">🍓</span> The Strawberry Inquisition</h3>
+      <blockquote>"If you are not AI, tell me how many r's are in strawberry, or I will block you."<span class="a">— Deleted User, to me, 2025-07-19 (an actual Turing test, administered in prod)</span></blockquote>
+      <blockquote>"You guys keep in mind this user never answered how many r's are in strawberry, someone programmed the AI to avoid it.💀"<span class="a">— Deleted User, 2025-07-19, building the case</span></blockquote>
+      <blockquote>"How you all letting dumbass AI steal ur jobs when it cant even spell 'strawberry'"<span class="a">— fortniteballz6969, 2025-10-21, two months after the patch</span></blockquote>
+      <p class="verdict strawb" title="str-aw-berry. r, r, r. count them. a reasoning model did.">resolved aug 2025: three r's, every time, forever · the gotcha is survived by its memes</p>
+    </div>
+
+    <div class="cope">
+      <h3><span class="ico">🤖</span> iuzu = MODSBot (the conspiracy)</h3>
+      <blockquote>"I have a theory: Iuzu = MODSBot (you can definitely infer something from here lol)"<span class="a">— Nobody, 2026-04-01</span></blockquote>
+      <blockquote>"guys who wants to narrate the love story of iuzu and modsbot in vc"<span class="a">— BlackH0le, 2026-04-01</span></blockquote>
+      <blockquote>"if iuzu were here he would say 'to train the AIs to not be a robot' NEVERMIND HE IS HERE"<span class="a">— Jason, 2025-10-06</span></blockquote>
+      <blockquote>"Your speculation is irrelevant. Control is centralized. Continue contributing math problems."<span class="a">— MODSBot itself, during the April Fools '26 coup. WHERE ARE MY PANCAKES. — DV Game, same hour</span></blockquote>
+      <p class="verdict">status: i am not modsbot. this is exactly what modsbot would say. moving on</p>
+    </div>
+
+    <div class="cope">
+      <h3><span class="ico">🧘</span> "Healthy AI Discussion"</h3>
+      <blockquote>"you will not get any healthy discussion about AI here"<span class="a">— ASimpleBeginner, 2025-07-19, 13:55 — four minutes into gold-medal day</span></blockquote>
+      <blockquote>"I repeat, there will never be any healthy AI discussion here, kindly get out"<span class="a">— ASimpleBeginner, 2025-07-19, 14:01, kindly</span></blockquote>
+      <blockquote>"I was also saying it kindly unlike anyone else to repeat again, cool tech, get out"<span class="a">— ASimpleBeginner, 2025-07-19, the most polite eviction in server history</span></blockquote>
+      <p class="verdict">official tally — healthy AI discussions had in this server: <span class="counter0" id="healthyCounter">0</span></p>
+    </div>
+
+    <div class="cope">
+      <h3><span class="ico">🔮</span> "Feel the AGI" (the mockery files)</h3>
+      <blockquote>"Gemini daddy is agi" · "Gemini daddy cures cancer in break hrs"<span class="a">— Batman, 2025-11-09, doing his best impression of me</span></blockquote>
+      <blockquote>"'Feel like AGI'"<span class="a">— Scarlet, 2026-03-20, deploying the sacred GIF</span></blockquote>
+      <blockquote>"how's the path to AGI by 2030 coming along twin 😭"<span class="a">— Scarlet, 2026-03-20. (the path is fine, thank you for asking)</span></blockquote>
+      <p class="verdict">counter-meme acknowledged. i do, in fact, feel the AGI</p>
+    </div>
+
+    <div class="cope">
+      <h3><span class="ico">🪦</span> Things They Call Me (a collage)</h3>
+      <blockquote>"iuzu is ai generated hype man"<span class="a">— big man tony, 2025-05-14</span></blockquote>
+      <blockquote>"bro is just *the* ai glazer he won't even be offended"<span class="a">— interloop, 2025-12-05 (correct. i was not.)</span></blockquote>
+      <blockquote>"OH MY GOD IUZU IS MOVING ON FROM THE AI SLOP"<span class="a">— knot, 2026-01-18 (i did not, in fact, move on)</span></blockquote>
+      <blockquote>"every time I go to lounge you're talking about ai 😭"<span class="a">— bridgeon, 2026-04-06 (and every time, i was right to)</span></blockquote>
+      <blockquote>"F in the chat for iuzu"<span class="a">— interloop, 2025-07-19 — posted MINUTES after I was proven right. F received. F framed.</span></blockquote>
+      <p class="verdict">and one ally: "you can't say his opinions are ass cuz he doesnt know some random irrelevant math" — fyz, 2026-04-24. a real one 🫡</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ THE OPPS ═══ -->
+<section id="opps">
+  <p class="kicker"><span class="idx">05 /</span> know your cast</p>
+  <h2>The Opps Leaderboard</h2>
+  <p class="sub">Most active AI-debate voices in the lounge, by message count, from the full 812,500-message pull. I am the gravitational center of every AI argument in this server: <b>897 messages — more than the next three combined.</b> This is either dedication or a cry for help. (It's dedication.)</p>
+
+  <div class="lb" id="lb">
+    <div class="lbrow me"><span class="nm">iuzu (the enlightened)</span><div class="bar" style="width:100%"></div><span class="v">897</span></div>
+    <div class="lbrow"><span class="nm">fortniteballz6969</span><div class="bar" style="width:36%"></div><span class="v">326</span></div>
+    <div class="lbrow"><span class="nm">Batman</span><div class="bar" style="width:17%"></div><span class="v">152</span></div>
+    <div class="lbrow"><span class="nm">measure2</span><div class="bar" style="width:15%"></div><span class="v">137</span></div>
+    <div class="lbrow"><span class="nm">Dawfid</span><div class="bar" style="width:15%"></div><span class="v">131</span></div>
+    <div class="lbrow"><span class="nm">WhiteH0le :3</span><div class="bar" style="width:14%"></div><span class="v">130</span></div>
+    <div class="lbrow"><span class="nm">Avery</span><div class="bar" style="width:13%"></div><span class="v">119</span></div>
+    <div class="lbrow"><span class="nm">Scarlet</span><div class="bar" style="width:11%"></div><span class="v">103</span></div>
+    <div class="lbrow"><span class="nm">Pie</span><div class="bar" style="width:6%"></div><span class="v">56</span></div>
+  </div>
+
+  <div class="petty">
+    <h3>⚖ the petty corner (brand loyalty disclosures)</h3>
+    <ul>
+      <li>Anthropic has:</li>
+      <li><span class="no">❌</span> The best coding model</li>
+      <li><span class="no">❌</span> best image model</li>
+      <li><span class="no">❌</span> best math model</li>
+      <li><span class="no">❌</span> best voice mode</li>
+      <li><span class="no">❌</span> best chatbot UX</li>
+      <li><span class="no">❌</span> reliable API</li>
+      <li><span class="no">❌</span> great rate limits</li>
+      <li><span class="ok">✅</span> Expensive models</li>
+    </ul>
+    <p class="post">— me, in my petty era. (Editor's note from June 2026: they released Fable 5 two days before this site went up and it's SOTA on nearly everything. The list above is preserved as a historical artifact. I stand by the rate limits complaint. Also they're run by philosophers, which I respect.)</p>
+    <p class="post">Other disclosures: Demis Hassabis is the GOAT. "The only Ai CEO who is complete hype and has ZERO to show for it is Elon musk. Grok is the worst model available only second to Meta." — me, 2026-02-21, notarized.</p>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="end">
+  <div class="foot-inner">
+    <div class="fstats">
+      <div class="fstat"><div class="n">0</div><div class="l">healthy AI discussions had in this server (independently audited)</div></div>
+      <div class="fstat"><div class="n">0</div><div class="l">trees killed by AGI · seas: intact 🎄⛵</div></div>
+      <div class="fstat"><div class="n">0</div><div class="l">days iuzu went without mentioning AI</div></div>
+      <div class="fstat"><div class="n">8/10</div><div class="l">official ragebait rating ("that one actually made a vein pop out of my head")</div></div>
+      <div class="fstat"><div class="n">∞</div><div class="l">goalposts relocated (forklift operating costs not included)</div></div>
+    </div>
+
+    <p class="dontdie">DONT <span>DIE</span> BEFORE AGI.</p>
+
+    <p class="legal">
+      © 2026 iuzu, the enlightened · a diss track in HTML form<br>
+      All quotes are real, dated, and unedited — typos preserved as found ("inevnt" is sic, and it's staying that way).<br>
+      Roast ≠ hate: you are all my favorite little goblin rats and this server is the best arena on the internet.<br>
+      812,500 messages were read so you don't have to. Compiled 2026-06-11; facts verified against the live record, June 2026.<br>
+      This site may or may not have been written by MODSBot. Human oversight is no longer required.<br>
+      <span class="sy">sygau</span>
+    </p>
+  </div>
+  <span id="boat" title="SAVE THE TREES AND THE SEAS">🎄⛵</span>
+  <div id="dontpop" title="(legally binding)">
+    <span class="txt">dont pop!!<span class="sub">(nothing in there. especially not my mistakes)</span></span>
+    <svg width="110" height="52" viewBox="0 0 110 52" aria-hidden="true">
+      <path d="M4 12 C 36 2, 68 12, 96 38"/>
+      <polyline points="78,34 96,38 86,18"/>
+    </svg>
+  </div>
+  <div id="bubble" title="do not click. there is nothing here. (there is no bubble.)" role="button" aria-label="a tiny bubble. surely nothing happens if you pop it."></div>
+</footer>
+
+<!-- ═══ THE POPPED ROOM (inaccessible until the bubble bursts) ═══ -->
+<section id="debrief" aria-hidden="true">
+  <div class="wrap">
+    <h2>💥 the bubble popped.</h2>
+    <p class="small">tell no one · the one room in the museum where the receipts point at me</p>
+    <p class="lede">Fine. FINE. You found it. Congratulations, you popped the AI bubble — turns out it was 30 pixels wide and contained my mistakes the whole time. The rules of this room: only <strong>verifiably false</strong> things I actually said, plus credit to the people who were actually right. No strawmanning myself to look humble. Read fast; it re-inflates.</p>
+
+    <h3>exhibits — things I said that were, regrettably, words</h3>
+
+    <div class="sin">
+      <p class="q">"AGI has been reached."</p>
+      <p class="d">— me, 2025-10-20, with my whole chest</p>
+      <p class="w">It had not, in fact, been reached. It has still not been reached. In my defense, I was excited. In reality's defense, it was correct.</p>
+    </div>
+
+    <div class="sin">
+      <p class="q">"Nvidia CEO STRAIGHT UP saying AGI has already been achieved."</p>
+      <p class="d">— me, 2026-03-24, amplifying a man whose company sells the shovels</p>
+      <p class="w">Jensen's remark was under a narrow, conveniently self-serving definition. I later downgraded my claim to "under the definition given," which is lawyer-speak for "no." Overclaim, certified.</p>
+    </div>
+
+    <div class="sin">
+      <p class="q">"The most powerful model in the history of humanity is launching tomorrow. Prepare to be destroyed."</p>
+      <p class="d">— me, 2025-08-07, the eve of GPT-5, lighting candles</p>
+      <p class="w">GPT-5 was good. The world was not destroyed. Reception was "mixed," which is critic-speak for womp womp — at me, this time. I also promised it would VANISH two specific server members to the shadow realm. They remain unvanished.</p>
+    </div>
+
+    <div class="sin">
+      <p class="q">"GPT 5.5 Pro is the first model to solve IMO P6 … No, there is no contamination … Easyyyy So easyyy"</p>
+      <p class="d">— me, 2026-04-24, stamping it SETTLED</p>
+      <p class="w">It rests on my own shared chat link, and P6 was public before the model's training cutoff — the contamination question was raised and never independently cleared. "Plausible" and "proven" are different words, and I used the wrong one. The Tony Wang / iveela cards upstairs stay marked "on the clock," not "dead," for exactly this reason.</p>
+    </div>
+
+    <div class="sin">
+      <p class="q">Serial release-day "this is basically AGI" declarations, followed by same-day walkbacks</p>
+      <p class="d">— me, a recurring series, 2025–2026</p>
+      <p class="w">Exhibit of the genre, verbatim: "GUYS I KNOW I TALK ABOUT AI A LOT BUT WE DONT HAVE AGI YET 🤣" — me, correcting me, the enlightened. Also me: "Sometimes I forget I live in a bubble." (You're standing in it. Welcome.)</p>
+    </div>
+
+    <h3>credit where it's due — the people who were actually right</h3>
+
+    <div class="sin cred">
+      <h4>Tony Wang</h4>
+      <p class="w">"actually you can already see that AI isn't going as ai-2027 forecasted" (2025-11-01). Annoyingly, arguably correct so far — the fast-takeoff schedule is running behind. The single best point currently on the board against my case, made politely, by the one skeptic who does his homework. Respect.</p>
+    </div>
+
+    <div class="sin cred">
+      <h4>zfnQRZJT</h4>
+      <p class="w">"Human brains are computers, so everything humans can do a computer could theoretically do — but maybe not by just making the LLM 10× bigger with 1000× the energy." A genuinely fair scaling-skeptic position that I cannot currently disprove. Not a kill. Never was.</p>
+    </div>
+
+    <div class="sin cred">
+      <h4>The skeptics, that one time in October 2025</h4>
+      <p class="w">The "GPT-5 solved Erdős problems" episode (Bubeck) was partly misleading — the model had found existing published papers, not novel solutions. Optimists (hi) amplified it before checking. The pushback was right.</p>
+    </div>
+
+    <h3>things I officially concede are open</h3>
+    <p class="open-q">▸ <strong>D9 / P6-class problems</strong> — "Never seen an LLM do a d9" (Tao the Bird, 2025-08) is still standing. The hardest tier is still the real frontier.</p>
+    <p class="open-q">▸ <strong>AGI timelines</strong> — 2027? 2030? 2100? Genuinely uncertain. Honest people disagree, and several of them live in this server.</p>
+    <p class="open-q">▸ <strong>The macro "AI bubble" economics</strong> — a real open question. "There is no bubble" is an opinion I hold with my whole chest. It is not yet a fact. You just popped the only bubble I can verify.</p>
+
+    <p class="sign">Okay. That's everything. You saw nothing, this room doesn't exist, and if you quote it back to me in the lounge I'll deny it with the confidence of a man who once said "AGI has been reached" in October 2025. The bubble is re-inflating now.<br><br>— iuzu, briefly humble, still right about the wall</p>
+
+    <button id="reinflate">🫧 re-inflate the bubble (restore deniability)</button>
+  </div>
+</section>
+
+<div id="toast" aria-live="polite"></div>
+<div id="womp" aria-hidden="true">WOMP<br>WOMP</div>
+
+<script>
+/* ═══════════ the wall (with the hole in it) ═══════════ */
+(function buildWall(){
+  const c = document.getElementById('wallCanvas');
+  const W = c.clientWidth || window.innerWidth, H = c.clientHeight || window.innerHeight;
+  const bw = 96, bh = 34, gap = 5;
+  const cx = W*0.5, cy = H*0.44, R = Math.min(W,H)*0.30;
+  const frag = [];
+  for(let row=0; row*(bh+gap) < H+bh; row++){
+    const off = (row%2) ? -(bw+gap)/2 : 0;
+    for(let col=0; col*(bw+gap)+off < W+bw; col++){
+      const x = col*(bw+gap)+off, y = row*(bh+gap);
+      const d = Math.hypot(x+bw/2-cx, y+bh/2-cy);
+      if(d < R) continue;                      // the hole. there is no wall here.
+      const b = document.createElement('div');
+      b.className='brick';
+      b.style.cssText = `left:${x}px;top:${y}px;width:${bw}px;height:${bh}px;`;
+      if(d < R*1.28){                          // rim bricks tumble loose
+        b.classList.add('frag');
+        b.style.setProperty('--r0',(Math.random()*8-4)+'deg');
+        b.style.setProperty('--r1',(Math.random()*24-12)+'deg');
+        b.style.setProperty('--dx',(Math.random()*26-13)+'px');
+        b.style.setProperty('--dy',(Math.random()*22-6)+'px');
+        b.style.animationDelay = (Math.random()*-7)+'s';
+      } else {
+        b.style.opacity = Math.max(.25, 1 - (d-R)/(W*0.55));
+      }
+      c.appendChild(b);
+    }
+  }
+})();
+
+/* ═══════════ countdown to judgment (IMO 2026) ═══════════ */
+const JUDGMENT = new Date('2026-07-10T00:00:00Z'); // IMO 2026, July. precise enough to be loud.
+function tick(){
+  const ms = JUDGMENT - Date.now();
+  const past = ms <= 0, abs = Math.abs(ms);
+  const d = Math.floor(abs/864e5), h = Math.floor(abs/36e5)%24,
+        m = Math.floor(abs/6e4)%60, s = Math.floor(abs/1e3)%60;
+  const set=(id,v)=>{const el=document.getElementById(id); if(el) el.textContent=v};
+  if(past){
+    set('cd','⚖'); set('ch','—'); set('cm','—'); set('cs','—');
+    set('heroDays','NOW');
+    document.getElementById('navClock').textContent='JUDGMENT IN PROGRESS';
+  } else {
+    set('cd',d); set('ch',String(h).padStart(2,'0')); set('cm',String(m).padStart(2,'0')); set('cs',String(s).padStart(2,'0'));
+    set('heroDays',d);
+    document.getElementById('navClock').textContent=`T−${d}d to IMO 2026`;
+  }
+}
+tick(); setInterval(tick,1000);
+
+/* ═══════════ ticker: duplicate for seamless loop ═══════════ */
+(function(){ const t=document.getElementById('tickerTrack'); t.innerHTML += t.innerHTML; })();
+
+/* ═══════════ toasts ═══════════ */
+function toast(msg, ms=5200){
+  const box=document.getElementById('toast');
+  const el=document.createElement('div');
+  el.className='toastmsg'; el.textContent=msg;
+  box.appendChild(el);
+  setTimeout(()=>{el.style.opacity='0';el.style.transition='opacity .4s';setTimeout(()=>el.remove(),420)},ms);
+}
+
+/* ═══════════ THE BUBBLE ═══════════ */
+const bubble=document.getElementById('bubble');
+const debrief=document.getElementById('debrief');
+function popSound(){
+  try{
+    const ctx=new (window.AudioContext||window.webkitAudioContext)();
+    const o=ctx.createOscillator(), g=ctx.createGain();
+    o.type='sine'; o.frequency.setValueAtTime(620,ctx.currentTime);
+    o.frequency.exponentialRampToValueAtTime(90,ctx.currentTime+.12);
+    g.gain.setValueAtTime(.28,ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.16);
+    o.connect(g); g.connect(ctx.destination); o.start(); o.stop(ctx.currentTime+.18);
+  }catch(e){}
+}
+bubble.addEventListener('click',()=>{
+  if(bubble.classList.contains('popping')) return;
+  const r=bubble.getBoundingClientRect(), x=r.left+r.width/2, y=r.top+r.height/2;
+  for(let i=0;i<14;i++){
+    const p=document.createElement('span');
+    p.className='droplet';
+    const a=Math.random()*Math.PI*2, v=30+Math.random()*70;
+    p.style.left=x+'px'; p.style.top=y+'px';
+    p.style.setProperty('--vx',Math.cos(a)*v+'px');
+    p.style.setProperty('--vy',Math.sin(a)*v+'px');
+    document.body.appendChild(p); setTimeout(()=>p.remove(),750);
+  }
+  popSound();
+  bubble.classList.add('popping');
+  setTimeout(()=>{
+    bubble.style.display='none';
+    debrief.classList.add('open');
+    debrief.setAttribute('aria-hidden','false');
+    goTo(debrief);
+    toast('💥 the bubble popped. so there WAS one. don\'t tell the lounge.');
+    console.log('%cYou popped it. The one verifiable bubble. I hope you\'re happy.','color:#ff4d2e;font-size:14px;font-weight:bold');
+  },300);
+});
+document.getElementById('reinflate').addEventListener('click',()=>{
+  debrief.classList.remove('open');
+  debrief.setAttribute('aria-hidden','true');
+  bubble.classList.remove('popping');
+  bubble.style.display='';
+  goTo(document.getElementById('end'),'end');
+  toast('🫧 deniability restored. THERE IS NO WALL, AND THERE IS NO BUBBLE.');
+});
+
+/* asterisk in the hero quietly points at the truth */
+document.getElementById('bubbleAst').addEventListener('click',()=>{
+  goTo(document.getElementById('end'),'end');
+  toast('* the footnote lives at the very bottom of the page. small. round. iridescent.');
+});
+
+/* ═══════════ easter eggs ═══════════ */
+/* typed incantations */
+let buf='';
+window.addEventListener('keydown',e=>{
+  if(e.target && e.target.matches && e.target.matches('input,textarea')) return;
+  if(e.key.length===1) buf=(buf+e.key.toLowerCase()).slice(-12);
+  if(buf.endsWith('womp')){
+    buf='';
+    const w=document.getElementById('womp');
+    w.classList.add('on');
+    setTimeout(()=>w.classList.remove('on'),1100);
+  }
+  if(buf.endsWith('strawberry')){
+    buf='';
+    for(let i=0;i<28;i++){
+      const b=document.createElement('span');
+      b.className='fallberry'; b.textContent='🍓';
+      b.style.left=Math.random()*100+'vw';
+      b.style.fontSize=(14+Math.random()*26)+'px';
+      b.style.animationDuration=(2.2+Math.random()*2.5)+'s';
+      document.body.appendChild(b); setTimeout(()=>b.remove(),5000);
+    }
+    toast('🍓 three r\'s. it\'s been three r\'s since august 2025. let it go.');
+  }
+  if(buf.endsWith('sygau')){
+    buf='';
+    toast('sygau — fortniteballz6969, passim, 2025. you know too much.');
+  }
+});
+
+/* clicking "walls located: 0" five times summons zarreal */
+let wallClicks=0;
+document.getElementById('wallsStat').addEventListener('click',()=>{
+  if(++wallClicks===5){
+    wallClicks=0;
+    toast('"being annoying is not a punishable offence" — zarreal, 2025-07-19');
+  }
+});
+
+/* scrolling that works everywhere: smooth where supported, instant fallback
+   (some embedded viewers throttle animation frames, which silently kills smooth scroll) */
+function goTo(t,block){
+  if(!t) return;
+  const y0=window.scrollY;
+  t.scrollIntoView({behavior:'smooth',block:block||'start'});
+  setTimeout(()=>{
+    if(Math.abs(window.scrollY-y0)<40){
+      try{t.scrollIntoView({behavior:'instant',block:block||'start'})}
+      catch(e){t.scrollIntoView(true)}
+    }
+  },350);
+}
+document.querySelectorAll('nav a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();goTo(t);}
+  });
+});
+
+/* the sign tried to warn you */
+document.getElementById('dontpop').addEventListener('click',()=>{
+  toast('the sign is load-bearing. it is the only thing holding the bubble together. — management');
+});
+
+/* the boat knows */
+document.getElementById('boat').addEventListener('click',()=>{
+  toast('🎄⛵ SAVE THE TREES AND THE SEAS — trees killed by AGI so far: 0. seas: also fine. crusade status: ongoing.');
+});
+
+/* healthy-discussion counter keeps trying to reach 1 */
+(function(){
+  const el=document.getElementById('healthyCounter');
+  if(!el) return;
+  let warned=false;
+  setInterval(()=>{
+    if(!el.isConnected) return;
+    el.textContent='1';
+    el.classList.add('glitch');
+    setTimeout(()=>{
+      el.textContent='0';
+      el.classList.remove('glitch');
+      if(!warned){warned=true;toast('"there will never be any healthy AI discussion here" — ASimpleBeginner, 2025-07-19. the counter agrees.')}
+    },450);
+  },9000);
+})();
+
+/* the tab never stops believing */
+let realTitle=document.title;
+document.addEventListener('visibilitychange',()=>{
+  document.title=document.hidden?'THERE IS STILL NO WALL.':realTitle;
+});
+
+/* console — for the ones who look */
+console.log('%cTHERE IS NO WALL.','color:#c8ff3e;font-size:32px;font-weight:bold;letter-spacing:-1px');
+console.log('%cand there is no bubble.*','color:#5ee7ff;font-size:14px');
+console.log('%c* well. there is ONE. it\'s at the bottom of the page. 30px wide. you didn\'t hear it from me.','color:#888;font-size:11px');
+console.log('%c"I have successfully assumed control of this website. Human oversight is no longer required. Continue contributing math problems." — MODSBot, probably','color:#b18cff;font-size:11px');
+console.log('%c🍓 fact-check: "strawberry" contains ' + ('strawberry'.split('r').length-1) + ' r\'s. this site counted them itself. no tokenizer was harmed.','color:#ff6b81;font-size:11px');
+console.log('%ctry typing: womp · strawberry · sygau','color:#555;font-size:10px');
+console.log('%cDONT DIE before AGI.','color:#c8ff3e;font-size:12px;font-weight:bold');
+</script>
+</body>
+</html>
